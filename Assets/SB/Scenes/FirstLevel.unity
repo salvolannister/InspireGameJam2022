@@ -4477,7 +4477,7 @@ GameObject:
   - component: {fileID: 317505475}
   - component: {fileID: 317505478}
   - component: {fileID: 317505477}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Back
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -7465,7 +7465,7 @@ GameObject:
   - component: {fileID: 348251940}
   - component: {fileID: 348251942}
   - component: {fileID: 348251941}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7801,6 +7801,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 463509785}
   m_CullTransparentMesh: 1
+--- !u!1 &531714535
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 531714536}
+  m_Layer: 0
+  m_Name: Enemy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &531714536
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531714535}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.5757918, y: -0.43155143, z: -0.46358913}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &609625995
 GameObject:
   m_ObjectHideFlags: 0
@@ -8459,7 +8489,7 @@ GameObject:
   - component: {fileID: 832104485}
   - component: {fileID: 832104484}
   - component: {fileID: 832104483}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BlockCollider
   m_TagString: Block
   m_Icon: {fileID: 0}
@@ -9172,6 +9202,92 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1193794097}
   m_CullTransparentMesh: 1
+--- !u!1 &1264503772
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1264503774}
+  - component: {fileID: 1264503773}
+  m_Layer: 0
+  m_Name: A*
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1264503773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1264503772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78396926cbbfc4ac3b48fc5fc34a87d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  data:
+    dataString: UEsDBBQAAAgIAAAIIeykKuO6XAIAABAFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1z2jAQ/SuMzqWDMwGS3lpDSA8EJrSTiy9CWmMNsuTRB18Z/ntXso0dekK893b37WrlTyKUrYA5bRZG8KXmQH4MSDiTb4OOfIUT3Wm1ERdoNR+CuyKIaNS8Uyc04kkIs7oEZwT7qXYyiEcIeiVybco530GqrbMI51RaQMpoF6IVQp8DcsKf4XMIOePpYRpOFzw9jwZXPDJQDkwnnTTCpJHVKq+YpGUFPFjuxI9t2mQcZQqbaRQhnmkphW2cEHeuYqcprazHPlDABcXOYvmgL0DsChdc9oNXeW7BNW0bep4JgwOqs5Jfup5aSe2+9nWg0oc6T9FRnXL5HztMIp0bXb62VZNRqOAKwfbv9Myodb2h9uHZV9teHanc062EjwLUm14Y7RVH0hkfQr2Fh1n399ZYWgDbd3ht9Q70VTftdtjtDYYerrH3UypFuQ3U98ca2Egdpx0vHgzey280HNfCNikQDS7+WvhDd/39aYgXYaxDqulSBXtb7U2QknmcWejGu1QbBRFuTFegqHTnNaZx9xd4x/XK3jEvNLyUpnjDtQ/gLiTCnX40uqPW+ni7LFvo4xJssfJOCgWd6UC84ZxSrVS9X/2ZtGEbb3LKemE7L/jX1SLJA5tOJknCppDw5IkOxyPOt8n4eZw/0nwyHZO4e0Jhn1Sua6PNePDWVJdc4Z61H5DBwtAq7jo39LgQl1L3Ri5UrjfMAKhVneFmHAwWwTfJ51zggDbgnFDxvslnRqRme+DZLVEWO52fnKFZlyUjlThoF5CMpPGLkZEA33Z5beAg4BiKt8mu5PoPUEsDBBQAAAgIAAAIIexOxvN5bQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrSSoVGyuZmZoWGyeaphiqFFoq6pQUpKkqGppWmaSWKambmpUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAIIeykKuO6XAIAABAFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAIIexOxvN5bQAAAHgAAAAJACQAAAAAAAAAAAAAAKkCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAYQMAAAAA
+    upgradeData: 
+    file_cachedStartup: {fileID: 0}
+    data_cachedStartup: 
+    cacheStartup: 0
+  showNavGraphs: 1
+  showUnwalkableNodes: 1
+  debugMode: 0
+  debugFloor: 0
+  debugRoof: 1
+  manualDebugFloorRoof: 0
+  showSearchTree: 0
+  unwalkableNodeDebugSize: 0.3
+  logPathResults: 1
+  maxNearestNodeDistance: 100
+  scanOnStartup: 1
+  fullGetNearestSearch: 0
+  prioritizeGraphs: 0
+  prioritizeGraphsLimit: 1
+  colorSettings:
+    _SolidColor: {r: 0.11764706, g: 0.4, b: 0.7882353, a: 0.9}
+    _UnwalkableNode: {r: 1, g: 0, b: 0, a: 0.5}
+    _BoundsHandles: {r: 0.29, g: 0.454, b: 0.741, a: 0.9}
+    _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: 0.5}
+    _ConnectionHighLerp: {r: 1, g: 0, b: 0, a: 0.5}
+    _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
+    _AreaColors:
+    - {r: 0, g: 0, b: 0, a: 0}
+  tagNames: []
+  heuristic: 2
+  heuristicScale: 1
+  threadCount: 1
+  maxFrameTime: 10
+  batchGraphUpdates: 0
+  graphUpdateBatchingInterval: 0.2
+  euclideanEmbedding:
+    mode: 0
+    seed: 0
+    pivotPointRoot: {fileID: 0}
+    spreadOutCount: 1
+  showGraphs: 1
+--- !u!4 &1264503774
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1264503772}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.03, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1336695098
 GameObject:
   m_ObjectHideFlags: 0
@@ -9332,7 +9448,7 @@ GameObject:
   - component: {fileID: 1385973459}
   - component: {fileID: 1385973458}
   - component: {fileID: 1385973457}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BlockCollider (1)
   m_TagString: Block
   m_Icon: {fileID: 0}
@@ -9404,7 +9520,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1386190941}
   - component: {fileID: 1386190942}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BoxCollider (4)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -9840,7 +9956,7 @@ GameObject:
   - component: {fileID: 1825138269}
   - component: {fileID: 1825138271}
   - component: {fileID: 1825138270}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BlockCollider (3)
   m_TagString: Block
   m_Icon: {fileID: 0}
@@ -9989,7 +10105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1895764126}
   - component: {fileID: 1895764127}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BoxCollider
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -10047,7 +10163,7 @@ GameObject:
   - component: {fileID: 1937091256}
   - component: {fileID: 1937091255}
   - component: {fileID: 1937091254}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BlockCollider (2)
   m_TagString: Block
   m_Icon: {fileID: 0}
