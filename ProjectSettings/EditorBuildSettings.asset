@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/SB/Scenes/FirstLevel.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 0
+    path: Assets/Low_Swordman/Demo/demo.unity
+    guid: 9a24e8e0a81fd78488635ca9091a25a4
   m_configObjects: {}
