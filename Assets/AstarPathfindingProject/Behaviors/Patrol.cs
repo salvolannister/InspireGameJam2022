@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 namespace Pathfinding {
 	/// <summary>
@@ -21,6 +22,7 @@ namespace Pathfinding {
 		/// <summary>Time in seconds to wait at each target</summary>
 		public float delay = 0;
 
+		public Action<Vector3> OnChangeDir;
 		/// <summary>Current target index</summary>
 		int index;
 
@@ -53,7 +55,11 @@ namespace Pathfinding {
 			index = index % targets.Length;
 			agent.destination = targets[index].position;
 
-			if (search) agent.SearchPath();
+			if (search)
+			{
+				OnChangeDir(agent.destination);
+				agent.SearchPath();
+			}
 		}
 	}
 }
