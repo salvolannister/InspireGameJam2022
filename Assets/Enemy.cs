@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
 {
     public Patrol patrol;
     public SpriteRenderer enemySpriteRenderer;
+    public int damagePoint = 1;
 
     private void OnEnable()
     {
@@ -27,7 +28,17 @@ public class Enemy : MonoBehaviour
         
     }
 
-    private void OnDisable()
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log(" Get Damage called on Player");
+            collision.gameObject.GetComponent<SwordManCS>().GetDamage(damagePoint);
+        }
+    }
+
+
+    public void OnDisable()
     {
         patrol.OnChangeDir -= SwitchTextureDir;
 

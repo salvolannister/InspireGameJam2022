@@ -15,7 +15,7 @@ public abstract class PlayerControllerCS : MonoBehaviour
         {
             return _lifes;
         }
-        private set
+         set
         {
             _lifes = value;
         }
@@ -124,13 +124,19 @@ public abstract class PlayerControllerCS : MonoBehaviour
         m_CapsulleCollider.enabled = true;
     }
 
-    public void GetDamage(int damage = 1)
+    public virtual void GetDamage(int damage = 1)
     {
         if (LIFES <= damage)
         {
             LIFES = 0;
             TheGreatAdventure.GameOver();
         }
+        else
+        {
+            LIFES-= damage;
+        }
+
+        
     }
     //////바닥 체크 레이케스트 
     Vector2 RayDir = Vector2.down;

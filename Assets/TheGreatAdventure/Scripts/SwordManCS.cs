@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -85,8 +86,8 @@ public class SwordManCS : PlayerControllerCS
             if (Input.GetKey(KeyCode.Mouse0))
             {
 
-
                 m_Anim.Play("Attack");
+              
             }
             else
             {
@@ -213,9 +214,7 @@ public class SwordManCS : PlayerControllerCS
 
     }
 
-
-
-
+   
 
     protected override void LandingEvent()
     {
@@ -225,6 +224,44 @@ public class SwordManCS : PlayerControllerCS
             m_Anim.Play("Idle");
 
     }
+    public override void GetDamage(int damage = 1)
+    {
+        if (LIFES <= damage)
+        {
+            LIFES = 0;
+            // Play Animation Then Make Game Over
+            StartCoroutine(HandlePlayerDeath());
+            
+               
+        }
+        else
+        {
+            LIFES -= damage;
+            HandleDamage();
+        }
+
+    }
+
+  
+    private IEnumerator HandlePlayerDeath()
+    {
+        WaitForSeconds waitForEndOfFrame = new WaitForSeconds(0.030f);
+        // PLAY DEATH SOUND
+        m_Anim.Play("Die");
+      
+        while (!(m_Anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !m_Anim.IsInTransition(0)))
+        {
+            yield return waitForEndOfFrame;
+        }
+
+        TheGreatAdventure.GameOver();
+    }
+
+    private void HandleDamage()
+    {
+        //PLAY damage sound
+    }
+
 
 }
 
