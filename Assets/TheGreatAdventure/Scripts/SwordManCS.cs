@@ -6,13 +6,15 @@ using UnityEngine;
 /* copied from swordman.cs of of Low_swordman asset */
 public class SwordManCS : PlayerControllerCS
 {
-
+    public bool immuneToAttack = false;
+    LayerMask enemiesLayer;
     private void Start()
     {
 
         m_CapsulleCollider = this.transform.GetComponent<CapsuleCollider2D>();
         m_Anim = this.transform.Find("model").GetComponent<Animator>();
         m_rigidbody = this.transform.GetComponent<Rigidbody2D>();
+        enemiesLayer = LayerMask.GetMask("Enemy");
 
 
     }
@@ -21,7 +23,6 @@ public class SwordManCS : PlayerControllerCS
 
     private void Update()
     {
-
 
 
         checkInput();
@@ -39,9 +40,7 @@ public class SwordManCS : PlayerControllerCS
 
     public void checkInput()
     {
-
-
-
+  
         if (Input.GetKeyDown(KeyCode.S))  //아래 버튼 눌렀을때. 
         {
 
@@ -81,13 +80,13 @@ public class SwordManCS : PlayerControllerCS
         GroundCheckUpdate();
 
 
-        if (!m_Anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+        if (!m_Anim.GetCurrentAnimatorStateInfo(0).IsName("Attack") )
         {
             if (Input.GetKey(KeyCode.Mouse0))
             {
 
                 m_Anim.Play("Attack");
-              
+                CheckForHit();
             }
             else
             {
@@ -214,7 +213,16 @@ public class SwordManCS : PlayerControllerCS
 
     }
 
-   
+    private void CheckForHit()
+    {
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, 1f, enemiesLayer.value);
+        if (hit)
+        {
+            hit.collider.gameObject.GetComponent<Enemy>().GetDamage();
+        }
+    }
+
 
     protected override void LandingEvent()
     {
@@ -226,29 +234,35 @@ public class SwordManCS : PlayerControllerCS
     }
     public override void GetDamage(int damage = 1)
     {
-        if (LIFES <= damage)
+        if (!immuneToAttack)
         {
-            LIFES = 0;
-            // Play Animation Then Make Game Over
-            StartCoroutine(HandlePlayerDeath());
-            
-               
+            if (LIFES <= damage)
+            {
+                LIFES = 0;
+                // Play Animation Then Make Game Over
+                StartCoroutine(HandlePlayerDeath());
+
+
+            }
+            else
+            {
+
+                LIFES -= damage;
+                StartCoroutine(HandleDamage());
+            }
         }
-        else
-        {
-            LIFES -= damage;
-            HandleDamage();
-        }
+
+
 
     }
 
-  
+
     private IEnumerator HandlePlayerDeath()
     {
         WaitForSeconds waitForEndOfFrame = new WaitForSeconds(0.030f);
         // PLAY DEATH SOUND
         m_Anim.Play("Die");
-      
+
         while (!(m_Anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !m_Anim.IsInTransition(0)))
         {
             yield return waitForEndOfFrame;
@@ -257,10 +271,20 @@ public class SwordManCS : PlayerControllerCS
         TheGreatAdventure.GameOver();
     }
 
-    private void HandleDamage()
+    IEnumerator HandleDamage()
     {
+
+        immuneToAttack = true;
+        Debug.Log("playing damage");
+        m_Anim.Play("SecondLayer.Damage");
+        //Debug.Break();
+        yield return new WaitForSeconds(0.5f);
+
+        immuneToAttack = false;
         //PLAY damage sound
     }
+
+
 
 
 }

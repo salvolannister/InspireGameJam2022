@@ -43,4 +43,11 @@ public class Enemy : MonoBehaviour
         patrol.OnChangeDir -= SwitchTextureDir;
 
     }
+
+    public void GetDamage() { 
+    
+        //PLAY DAMAGE SOUND 
+        // Remove lifes, then die
+        Debug.Log("Goblin Getting damaged");
+    }
 }
