@@ -313,7 +313,7 @@ public class SwordManCS : PlayerControllerCS
                 Color c = srs[w].color;
                 c.a = startColors[w].a;
                 c.b = c.g = 0;
-                c.r = 0.5f;
+                c.r = 0.9f;
                 srs[w].color = c;
             }
 
