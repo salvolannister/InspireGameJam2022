@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/* copied from swordman.cs of of Low_swordman asset */
+/* copied and improved from swordman.cs of of Low_swordman asset */
 public class SwordManCS : PlayerControllerCS
 {
     public bool immuneToAttack = false;
-    LayerMask enemiesLayer;
+    private LayerMask enemiesLayer;
+    private SpriteRenderer[] srs;
+    Color[] startColors;
     private void Start()
     {
 
@@ -15,8 +17,13 @@ public class SwordManCS : PlayerControllerCS
         m_Anim = this.transform.Find("model").GetComponent<Animator>();
         m_rigidbody = this.transform.GetComponent<Rigidbody2D>();
         enemiesLayer = LayerMask.GetMask("Enemy");
-
-
+        srs = GetComponentsInChildren<SpriteRenderer>();
+        startColors = new Color[srs.Length];
+        for (int i =0, len = srs.Length; i < len; i++)
+        {
+            startColors[i] = srs[i].color;
+        }
+        
     }
 
 
@@ -276,15 +283,53 @@ public class SwordManCS : PlayerControllerCS
 
         immuneToAttack = true;
         Debug.Log("playing damage");
-        m_Anim.Play("Damage");
-        Debug.Break();
-        yield return new WaitForSeconds(0.5f);
+
+        yield return DamageAnimation();
 
         immuneToAttack = false;
         //PLAY damage sound
     }
 
+   
+    IEnumerator DamageAnimation()
+    {
+        int len = srs.Length;
 
+
+        for (int i = 0; i < 3; i++)
+        {
+            for (int x = 0; x < len; x++)
+            {
+                Color c = srs[x].color;
+                c.a = 0;
+                c.r = 1f;
+                c.b = c.g = 0;
+                srs[x].color = c;
+            }
+            yield return new WaitForSeconds(.1f);
+
+            for (int w = 0; w < len; w++)
+            {
+                Color c = srs[w].color;
+                c.a = startColors[w].a;
+                c.b = c.g = 0;
+                c.r = 0.5f;
+                srs[w].color = c;
+            }
+
+            yield return new WaitForSeconds(.1f);
+        }
+
+        for (int w = 0; w < len; w++)
+        {
+            Color c = srs[w].color;
+            c.a = startColors[w].a;
+            c.b = startColors[w].b;
+            c.g = startColors[w].g;
+            c.r = startColors[w].r;
+            srs[w].color = c;
+        }
+    }
 
 
 }
