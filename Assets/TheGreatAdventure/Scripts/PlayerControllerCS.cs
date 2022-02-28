@@ -124,7 +124,7 @@ public abstract class PlayerControllerCS : MonoBehaviour
         m_CapsulleCollider.enabled = true;
     }
 
-    public virtual void GetDamage(int damage = 1)
+    public virtual void TakeDamage(int damage = 1)
     {
         if (LIFES <= damage)
         {

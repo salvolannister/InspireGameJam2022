@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log(" Get Damage called on Player");
-            collision.gameObject.GetComponent<SwordManCS>().GetDamage(damagePoint);
+            collision.gameObject.GetComponent<SwordManCS>().TakeDamage(damagePoint);
         }
     }
 

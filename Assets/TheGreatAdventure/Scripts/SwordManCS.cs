@@ -232,7 +232,7 @@ public class SwordManCS : PlayerControllerCS
             m_Anim.Play("Idle");
 
     }
-    public override void GetDamage(int damage = 1)
+    public override void TakeDamage(int damage = 1)
     {
         if (!immuneToAttack)
         {
@@ -276,8 +276,8 @@ public class SwordManCS : PlayerControllerCS
 
         immuneToAttack = true;
         Debug.Log("playing damage");
-        m_Anim.Play("SecondLayer.Damage");
-        //Debug.Break();
+        m_Anim.Play("Damage");
+        Debug.Break();
         yield return new WaitForSeconds(0.5f);
 
         immuneToAttack = false;
